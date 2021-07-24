@@ -6,6 +6,10 @@ import log from "./logger";
 import {handleError} from "./utils/baseError";
 import deserializeUser from "./middlewares/deserializeUser";
 
+process.on('uncaughtException', (err, origin) => {
+    console.log('uncaughtException' + err);
+});
+
 const port = config.get("port") as number;
 const host = config.get("host") as string;
 
